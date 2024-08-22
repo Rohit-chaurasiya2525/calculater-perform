@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #input {
+            height: 50px;
+            width: 80%;
+            font-size: 18px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            height: 60px;
+            width: 60px;
+            margin: 5px;
+            background-color: #ff9800;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e68a00;
+        }
+
+        button:active {
+            background-color: #cc7a00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" id="input" placeholder="Enter a Number"> <br>
+        <button onclick="appenCalcluate('1')">1</button>
+        <button onclick="appenCalcluate('2')">2</button>
+        <button onclick="appenCalcluate('3')">3</button>
+        <button onclick="appenCalcluate('+')">+</button> <br>
+        <button onclick="appenCalcluate('4')">4</button>
+        <button onclick="appenCalcluate('5')">5</button>
+        <button onclick="appenCalcluate('6')">6</button>
+        <button onclick="appenCalcluate('-')">-</button> <br>
+        <button onclick="appenCalcluate('7')">7</button>
+        <button onclick="appenCalcluate('8')">8</button>
+        <button onclick="appenCalcluate('9')">9</button>
+        <button onclick="appenCalcluate('*')">*</button> <br>
+        <button onclick="appenCalcluate('0')">0</button>
+        <button onclick="appenCalcluate('%')">%</button>
+        <button onclick="clearCalculate()">C</button>
+        <button onclick="calculate()">=</button>
+    </div>
+
+    <script src="script.js">
+        function appenCalcluate(value) {
+            document.getElementById('input').value += value;
+        }
+
+        function clearCalculate() {
+            document.getElementById('input').value = '';
+        }
+
+        function calculate() {
+            let expression = document.getElementById('input').value;
+            try {
+                let result = eval(expression);
+                document.getElementById('input').value = result;
+            } catch (error) {
+                document.getElementById('input').value = 'error';
+            }
+        }
+    </script>
+</body>
+
+</html>
+
